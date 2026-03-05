@@ -1,0 +1,271 @@
+/* Design Tokens */
+:root {
+    --color-primary: #fecf29;
+    /* Amarillo TLE */
+    --color-secondary: #b72029;
+    /* Rojo D-Troy */
+    --color-black: #000000;
+    --color-white: #ffffff;
+    --color-gray-bg: #f6f6f6;
+    --color-hover: #b18f19;
+
+    --font-primary: 'Roboto', sans-serif;
+    --font-secondary: 'Montserrat', sans-serif;
+}
+
+/* Base Styles */
+body {
+    font-family: var(--font-primary);
+    font-size: 16px;
+    color: var(--color-black);
+    background-color: var(--color-gray-bg);
+    margin: 0;
+    padding: 0;
+}
+
+/* Typography Standards */
+h1,
+.h1 {
+    font-family: var(--font-primary);
+    font-size: 45px;
+    font-weight: 900;
+}
+
+h2,
+.h2 {
+    font-family: var(--font-primary);
+    font-size: 35px;
+    font-weight: 700;
+}
+
+h3,
+.h3 {
+    font-family: var(--font-secondary);
+    font-size: 25px;
+    font-weight: 700;
+}
+
+h4,
+.h4 {
+    font-family: var(--font-secondary);
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.text-secondary-body {
+    font-family: var(--font-secondary);
+    font-size: 16px;
+}
+
+/* Buttons */
+.btn-tle {
+    font-family: var(--font-secondary);
+    background-color: var(--color-primary);
+    color: var(--color-black);
+    font-weight: 600;
+    padding: 12px 30px;
+    border-radius: 50px;
+    border: none;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.btn-tle:hover {
+    background-color: var(--color-hover);
+    color: var(--color-white);
+}
+
+.btn-black {
+    font-family: var(--font-secondary);
+    background-color: var(--color-black);
+    color: var(--color-white);
+    font-weight: 600;
+    padding: 12px 30px;
+    border-radius: 50px;
+    border: none;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.btn-black:hover {
+    background-color: #333333;
+    color: var(--color-white);
+}
+
+/* Utilities */
+.bg-tle-primary {
+    background-color: var(--color-primary) !important;
+}
+
+.bg-tle-black {
+    background-color: var(--color-black) !important;
+}
+
+.bg-tle-gray {
+    background-color: var(--color-gray-bg) !important;
+}
+
+.bg-tle-white {
+    background-color: var(--color-white) !important;
+}
+
+.text-tle-primary {
+    color: var(--color-primary) !important;
+}
+
+.text-tle-white {
+    color: var(--color-white) !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+
+    h1,
+    .h1 {
+        font-size: 36px;
+    }
+
+    h2,
+    .h2 {
+        font-size: 28px;
+    }
+
+    h3,
+    .h3 {
+        font-size: 22px;
+    }
+}
+
+/* --- SECTION 1: HERO --- */
+.hero-section {
+    height: 100vh;
+    min-height: 600px;
+}
+
+.hero-content-left {
+    z-index: 2;
+}
+
+.hero-image-right {
+    background-image: url('../img/tle-header.webp');
+    /* Asumiendo este nombre para el fondo hero */
+    background-color: #333;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+}
+
+.hero-image-right::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to right, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 20%);
+}
+
+@media (max-width: 991px) {
+    .hero-section {
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .hero-content-left {
+        background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9)), url('../img/tle-header.webp');
+        background-size: cover;
+        background-position: center;
+    }
+}
+
+/* --- SECTION 2: SERVICIOS --- */
+.service-card {
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.service-card .card-header {
+    min-height: 80px;
+    transition: background-color 0.4s ease;
+    /* Transición suave para el color de fondo */
+}
+
+.service-icon-placeholder {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-color: var(--color-black);
+    /* Fallback */
+    mask: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 13L9 17L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>') no-repeat center / contain;
+    -webkit-mask: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 13L9 17L19 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>') no-repeat center / contain;
+}
+
+.bg-tle-primary .service-icon-placeholder {
+    background-color: var(--color-black);
+}
+
+/* Swiper specific styles */
+.servicesSwiper {
+    padding-bottom: 50px !important;
+}
+
+.servicesSwiper .swiper-slide {
+    opacity: 0.6;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    transform: scale(0.9);
+}
+
+.servicesSwiper .swiper-slide-active {
+    opacity: 1;
+    transform: scale(1);
+    z-index: 2;
+}
+
+/* Customize Swiper Navigation Buttons */
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    font-size: 20px !important;
+    font-weight: bold;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    background-color: white !important;
+    border-radius: 50%;
+    width: 40px !important;
+    height: 40px !important;
+    color: black !important;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
+    top: 50% !important;
+    /* Center vertically relative to the wrapper */
+    transform: translateY(-50%) !important;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    background-color: var(--color-primary) !important;
+}
+
+/* Customize Swiper Pagination */
+.swiper-pagination-bullet {
+    width: 12px !important;
+    height: 12px !important;
+    opacity: 0.5 !important;
+    background: #6c757d !important;
+    /* Secondary info color bootstrap */
+}
+
+.swiper-pagination-bullet-active {
+    opacity: 1 !important;
+    background: var(--color-primary) !important;
+}

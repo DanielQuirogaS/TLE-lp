@@ -1,0 +1,13 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+.env.local
+
+# Optional: Add any build folders or specific temp files here
+node_modules/
+dist/
+build/
+.vscode/

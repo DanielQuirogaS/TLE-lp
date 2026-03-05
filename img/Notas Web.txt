@@ -1,0 +1,54 @@
+Bootstrap 12 Columnas
+- Ancho lienzo: 1366px
+- Contenedor: 1140px
+- Columnas: 65px
+
+
+---
+
+
+Textos.
+- Tipografía: Roboto (regular, bold) 
+https://fonts.google.com/specimen/Roboto
+
+- Títulos h1: 45px
+- Títulos h2: 35px
+- Texto body: 16px
+
+
+- Tipografía: Montserrat (regular, bold) 
+https://fonts.google.com/specimen/Montserrat
+
+- Títulos h3: 25px
+- Títulos h4: 20px
+- Texto body y botones: 16px
+
+
+----
+
+
+Colores - Valores Hex
+
+
+- Texto
+
+Blanco: ffffff
+Negro: 000000
+Amarillo: fecf29
+
+
+
+- Formas y líneas
+
+Blanco: ffffff
+Negro: 000000
+Amarillo: fecf29
+Gris: f6f6f6
+
+Amarillo: b18f19 (borde botones)
+Rojo: b72029 (botón D-Troy)
+
+
+- Notas:
+
+Hover botones. Texto #ffffff - Fondo #b18f19
