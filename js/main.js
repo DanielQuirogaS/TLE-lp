@@ -36,6 +36,38 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
+    // Inicialización del Carrusel de Reconocimientos con Swiper.js
+    const reconocimientosSwiper = new Swiper('.reconocimientosSwiper', {
+        slidesPerView: 2,
+        slidesPerGroup: 1,
+        spaceBetween: 30,
+        rewind: true,
+        autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+        },
+        pagination: {
+            el: '.reconocimientos-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.reconocimientos-next',
+            prevEl: '.reconocimientos-prev',
+        },
+        breakpoints: {
+            768: {
+                slidesPerView: 3,
+                slidesPerGroup: 1,
+                spaceBetween: 40,
+            },
+            1024: {
+                slidesPerView: 4,
+                slidesPerGroup: 1,
+                spaceBetween: 50,
+            }
+        }
+    });
+
     // Función para manejar el estilo del slide central (Activo)
     function updateDynamicStyling(swiperInstance) {
         // Remover clases color amarillo de todos los headers
