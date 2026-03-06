@@ -119,6 +119,72 @@ h4,
     color: var(--color-white) !important;
 }
 
+/* Utilities & Component Overrides */
+.section-title-wrapper h2,
+.section-title-wrapper h3 {
+    padding-bottom: 2px;
+}
+
+.section-title-wrapper hr {
+    opacity: 1 !important;
+    border-top: 2px solid black !important;
+}
+
+#seguridad .section-title-wrapper hr {
+    border-top-color: white !important;
+}
+
+.max-w-800 {
+    max-width: 800px;
+}
+
+.max-w-900 {
+    max-width: 900px;
+}
+
+.lh-1-8 {
+    line-height: 1.8;
+}
+
+.hero-content-wrapper {
+    max-width: 550px;
+}
+
+.service-card h4 {
+    font-size: 0.95rem;
+}
+
+.placeholder-activos {
+    max-height: 75px;
+}
+
+.reconocimientos-logo {
+    max-height: 100px;
+    mix-blend-mode: multiply;
+    opacity: 0.8;
+}
+
+.custom-nav-img {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+}
+
+.contact-form-wrapper {
+    max-width: 500px;
+}
+
+.contact-image-container {
+    background-image: url('../img/tle-footer.webp');
+    background-size: cover;
+    background-position: center;
+    min-height: 500px;
+}
+
+#cobertura img {
+    max-height: 350px;
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
 
@@ -175,7 +241,7 @@ h4,
 @media (max-width: 991px) {
     .hero-section {
         height: auto;
-        min-height: 100vh;
+        min-height: auto;
     }
 
     .hero-content-left {
