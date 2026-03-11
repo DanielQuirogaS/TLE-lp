@@ -43,7 +43,7 @@
                         <h1 class="mb-4">Líder en soluciones de transporte y logística integrales</h1>
                         <p class="text-secondary-body mb-5">Más de 40 años de experiencia en transporte de carga y
                             logística, con los más altos estándares de seguridad y calidad.</p>
-                        <a href="#contacto" class="btn-tle">Agiliza tu operación</a>
+                        <a href="#contacto" class="btn-tle">Cotiza ahora</a>
                     </div>
                 </div>
                 <!-- Right Image -->
@@ -351,6 +351,11 @@
                             </div>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-12 text-center">
+                            <a href="#contacto" class="btn-tle">Cotiza ahora</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -480,17 +485,76 @@
                         <p class="mb-0 fw-bold">Comunicación efectiva.</p>
                     </div>
                 </div>
-                <div class="col-md-3 col-sm-6 text-center text-md-start">
-                    <a href="#contacto" class="btn-tle">Cotiza ahora</a>
+                <div class="col-md-3 col-sm-6 text-center text-md-start"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 8: Contacto -->
+    <section id="contacto" class="bg-tle-white">
+        <div class="container-fluid p-0">
+            <div class="row g-0">
+                <div class="col-lg-6 p-4 p-md-5 d-flex flex-column justify-content-center order-2 order-lg-1">
+                    <div class="mx-auto w-100 contact-form-wrapper">
+                        <h2 class="mb-3">Contáctanos</h2>
+                        <p class="text-secondary-body mb-4 fw-bold">Impulsamos la conectividad de tu empresa</p>
+
+                        <form id="contactForm" novalidate>
+                            <div class="mb-3">
+                                <label for="nombre" class="form-label visually-hidden">Nombre completo</label>
+                                <input type="text" class="form-control rounded-0 border-dark bg-transparent" id="nombre"
+                                    placeholder="Nombre completo :" required>
+                                <div class="invalid-feedback">Por favor ingresa tu nombre.</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="telefono" class="form-label visually-hidden">Teléfono</label>
+                                <input type="tel" class="form-control rounded-0 border-dark bg-transparent"
+                                    id="telefono" placeholder="Teléfono :" required>
+                                <div class="invalid-feedback">Por favor ingresa tu teléfono.</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label visually-hidden">Correo electrónico</label>
+                                <input type="email" class="form-control rounded-0 border-dark bg-transparent" id="email"
+                                    placeholder="Correo electrónico :" required>
+                                <div class="invalid-feedback">Por favor ingresa un correo válido.</div>
+                            </div>
+                            <div class="mb-4">
+                                <label for="mensaje" class="form-label visually-hidden">Mensaje</label>
+                                <textarea class="form-control rounded-0 border-dark bg-transparent" id="mensaje"
+                                    rows="4" placeholder="Mensaje :" required></textarea>
+                                <div class="invalid-feedback">Por favor escribe un mensaje.</div>
+                            </div>
+
+                            <!-- Mensaje de éxito o error oculto por defecto -->
+                            <div id="formMessage" class="alert d-none" role="alert"></div>
+
+                            <button type="submit" class="btn-black px-5" id="btnSubmit">ENVIAR</button>
+                        </form>
+                    </div>
                 </div>
+                <!-- Contact Image -->
+                <div class="col-lg-6 order-1 order-lg-2 contact-image-container hero-image-right">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN CERTIFICACIONES -->
+    <section id="certificaciones" class="py-5">
+        <div class="container text-center">
+            <h3 class="mb-3 fw-bold">Certificaciones de calidad</h3>
+            <div class="d-flex flex-wrap justify-content-center gap-4 gap-md-5 align-items-center">
+                <img src="img/tle-certificaciones-01.webp" alt="ISO" class="img-fluid cert-logo">
+                <img src="img/tle-certificaciones-02.webp" alt="C-TPAT" class="img-fluid cert-logo">
+                <img src="img/tle-certificaciones-03.webp" alt="Transporte Limpio" class="img-fluid cert-logo">
             </div>
         </div>
     </section>
 
     <!-- SECCIÓN 7: Reconocimientos -->
     <section id="reconocimientos" class="py-5 bg-tle-white text-center">
-        <div class="container py-5">
-            <h3 class="mb-5">Reconocimientos que respaldan nuestra excelencia</h3>
+        <div class="container">
+            <h3 class="mb-3">Reconocimientos que respaldan nuestra excelencia</h3>
             <div class="row">
                 <div class="col-12 position-relative">
                     <div class="swiper reconocimientosSwiper pb-5">
@@ -550,67 +614,6 @@
                         <!-- Pagination -->
                         <div class="swiper-pagination reconocimientos-pagination"></div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SECCIÓN CERTIFICACIONES -->
-    <section id="certificaciones" class="py-5">
-        <div class="container py-5 text-center">
-            <h3 class="mb-5 fw-bold">Certificaciones de calidad</h3>
-            <div class="d-flex flex-wrap justify-content-center gap-4 gap-md-5 align-items-center">
-                <img src="img/tle-certificaciones-01.webp" alt="ISO" class="img-fluid cert-logo">
-                <img src="img/tle-certificaciones-02.webp" alt="C-TPAT" class="img-fluid cert-logo">
-                <img src="img/tle-certificaciones-03.webp" alt="Transporte Limpio" class="img-fluid cert-logo">
-            </div>
-        </div>
-    </section>
-
-    <!-- SECCIÓN 8: Contacto -->
-    <section id="contacto" class="bg-tle-white">
-        <div class="container-fluid p-0">
-            <div class="row g-0">
-                <div class="col-lg-6 p-4 p-md-5 d-flex flex-column justify-content-center order-2 order-lg-1">
-                    <div class="mx-auto w-100 contact-form-wrapper">
-                        <h2 class="mb-3">Contáctanos</h2>
-                        <p class="text-secondary-body mb-4 fw-bold">Impulsamos la conectividad de tu empresa</p>
-
-                        <form id="contactForm" novalidate>
-                            <div class="mb-3">
-                                <label for="nombre" class="form-label visually-hidden">Nombre completo</label>
-                                <input type="text" class="form-control rounded-0 border-dark bg-transparent" id="nombre"
-                                    placeholder="Nombre completo :" required>
-                                <div class="invalid-feedback">Por favor ingresa tu nombre.</div>
-                            </div>
-                            <div class="mb-3">
-                                <label for="telefono" class="form-label visually-hidden">Teléfono</label>
-                                <input type="tel" class="form-control rounded-0 border-dark bg-transparent"
-                                    id="telefono" placeholder="Teléfono :" required>
-                                <div class="invalid-feedback">Por favor ingresa tu teléfono.</div>
-                            </div>
-                            <div class="mb-3">
-                                <label for="email" class="form-label visually-hidden">Correo electrónico</label>
-                                <input type="email" class="form-control rounded-0 border-dark bg-transparent" id="email"
-                                    placeholder="Correo electrónico :" required>
-                                <div class="invalid-feedback">Por favor ingresa un correo válido.</div>
-                            </div>
-                            <div class="mb-4">
-                                <label for="mensaje" class="form-label visually-hidden">Mensaje</label>
-                                <textarea class="form-control rounded-0 border-dark bg-transparent" id="mensaje"
-                                    rows="4" placeholder="Mensaje :" required></textarea>
-                                <div class="invalid-feedback">Por favor escribe un mensaje.</div>
-                            </div>
-
-                            <!-- Mensaje de éxito o error oculto por defecto -->
-                            <div id="formMessage" class="alert d-none" role="alert"></div>
-
-                            <button type="submit" class="btn-black px-5" id="btnSubmit">ENVIAR</button>
-                        </form>
-                    </div>
-                </div>
-                <!-- Contact Image -->
-                <div class="col-lg-6 order-1 order-lg-2 contact-image-container hero-image-right">
                 </div>
             </div>
         </div>
