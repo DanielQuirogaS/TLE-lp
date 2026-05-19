@@ -500,6 +500,11 @@
                         <p class="text-secondary-body mb-4 fw-bold">Impulsamos la conectividad de tu empresa</p>
 
                         <form id="contactForm" novalidate>
+                            <!-- Anti-spam Honeypot -->
+                            <div class="visually-hidden" aria-hidden="true">
+                                <label for="bot_field">No llenar este campo si eres humano</label>
+                                <input type="text" id="bot_field" name="bot_field" tabindex="-1" autocomplete="off">
+                            </div>
                             <div class="mb-3">
                                 <label for="nombre" class="form-label visually-hidden">Nombre completo</label>
                                 <input type="text" class="form-control rounded-0 border-dark bg-transparent" id="nombre"
@@ -524,9 +529,6 @@
                                     rows="4" placeholder="Mensaje :" required></textarea>
                                 <div class="invalid-feedback">Por favor escribe un mensaje.</div>
                             </div>
-
-                            <!-- Mensaje de éxito o error oculto por defecto -->
-                            <div id="formMessage" class="alert d-none" role="alert"></div>
 
                             <button type="submit" class="btn-black px-5" id="btnSubmit">ENVIAR</button>
                         </form>
@@ -632,6 +634,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <!-- Custom JS -->
     <script src="js/main.js"></script>
 </body>

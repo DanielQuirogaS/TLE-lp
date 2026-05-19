@@ -91,10 +91,24 @@ document.addEventListener('DOMContentLoaded', function () {
     // Lógica de Validación del Formulario de Contacto
     const contactForm = document.getElementById('contactForm');
     const btnSubmit = document.getElementById('btnSubmit');
-    const formMessage = document.getElementById('formMessage');
+    const formLoadTime = Date.now();
 
     if (contactForm) {
-        contactForm.addEventListener('submit', function (event) {
+        function simulateSuccess() {
+            contactForm.reset();
+            contactForm.classList.remove('was-validated');
+            Swal.fire({
+                icon: 'success',
+                title: '¡Mensaje Enviado!',
+                text: 'Gracias por comunicarte con nosotros. Un agente te contactará a la brevedad.',
+                confirmButtonColor: '#000000',
+                confirmButtonText: 'Aceptar'
+            });
+            btnSubmit.disabled = false;
+            btnSubmit.innerHTML = 'ENVIAR';
+        }
+
+        contactForm.addEventListener('submit', async function (event) {
             event.preventDefault();
             event.stopPropagation();
 
@@ -104,6 +118,35 @@ document.addEventListener('DOMContentLoaded', function () {
                 return;
             }
 
+            // Anti-Spam: Verificar campo honeypot
+            const honeypot = document.getElementById('bot_field');
+            if (honeypot && honeypot.value !== '') {
+                // Es probable que sea un bot, simulamos éxito sin enviar petición
+                return simulateSuccess();
+            }
+
+            // Anti-Spam: Verificar tiempo de llenado (menor a 3 segundos es sospechoso)
+            const timeToFill = Date.now() - formLoadTime;
+            if (timeToFill < 3000) {
+                return simulateSuccess();
+            }
+
+            // Anti-Spam: Límite de envíos con LocalStorage (1 envío cada 10 minutos)
+            const lastSubmit = localStorage.getItem('tle_lastFormSubmit');
+            if (lastSubmit) {
+                const timePassed = Date.now() - parseInt(lastSubmit);
+                if (timePassed < 10 * 60 * 1000) {
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'Espera un momento',
+                        text: 'Ya hemos recibido un mensaje tuyo recientemente. Por favor intenta de nuevo más tarde.',
+                        confirmButtonColor: '#000000',
+                        confirmButtonText: 'Aceptar'
+                    });
+                    return;
+                }
+            }
+
             // Valid form
             contactForm.classList.add('was-validated');
 
@@ -111,25 +154,52 @@ document.addEventListener('DOMContentLoaded', function () {
             btnSubmit.disabled = true;
             btnSubmit.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span> ENVIANDO...';
 
-            // Simulación de envío (como no hay backend en esta prueba)
-            setTimeout(() => {
-                formMessage.classList.remove('d-none', 'alert-danger');
-                formMessage.classList.add('alert-success');
-                formMessage.textContent = '¡Gracias! Tu mensaje ha sido enviado exitosamente. Nos comunicaremos contigo pronto.';
+            const urlParams = new URLSearchParams(window.location.search);
 
-                // Reset form state
-                contactForm.reset();
-                contactForm.classList.remove('was-validated');
-                btnSubmit.innerHTML = 'ENVIADO &#10003;';
+            const payload = {
+                nombre: document.getElementById('nombre').value,
+                telefono: document.getElementById('telefono').value,
+                email: document.getElementById('email').value,
+                mensaje: document.getElementById('mensaje').value,
+                utm_source: urlParams.get('utm_source') || '',
+                utm_medium: urlParams.get('utm_medium') || '',
+                utm_campaign: urlParams.get('utm_campaign') || '',
+                utm_term: urlParams.get('utm_term') || '',
+                utm_content: urlParams.get('utm_content') || '',
+                utm_id: urlParams.get('utm_id') || '',
+                origen: window.location.href
+            };
 
-                // Habilitar de nuevo tras unos segundos por si gustan enviar otro y resetear mensaje
-                setTimeout(() => {
-                    btnSubmit.disabled = false;
-                    btnSubmit.innerHTML = 'ENVIAR';
-                    formMessage.classList.add('d-none');
-                }, 6000);
+            try {
+                const response = await fetch('https://n8n.ongoing.mx/webhook/f242ff51-4431-42cd-b41e-d7eb18fa6924', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(payload)
+                });
 
-            }, 2000);
+                const data = await response.json();
+
+                if (response.ok && data.success) {
+                    // Guardar timestamp de envío exitoso
+                    localStorage.setItem('tle_lastFormSubmit', Date.now().toString());
+                    simulateSuccess();
+                } else {
+                    throw new Error('Respuesta del servidor no exitosa');
+                }
+            } catch (error) {
+                console.error('Error al enviar el formulario:', error);
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'Hubo un problema al enviar tu mensaje. Por favor, intenta nuevamente.',
+                    confirmButtonColor: '#000000',
+                    confirmButtonText: 'Aceptar'
+                });
+                btnSubmit.disabled = false;
+                btnSubmit.innerHTML = 'ENVIAR';
+            }
         });
     }
 });
